@@ -9,4 +9,4 @@
 
 # Observações
 
-## Ao clonar o projeto deve ser criada uma pasta com o nome users em *jkcontrol\target\jkcontrol*
+## Ao clonar o projeto deve ser criada uma pasta com o nome users em *\target\jkcontrol* e em *\src\main\webapp*

@@ -9,4 +9,4 @@
 
 # Observações
 
-## Ao clocar o projeto deve ser criada uma pasta com o nome users em _ jkcontrol\target\jkcontrol _
+## Ao clonar o projeto deve ser criada uma pasta com o nome users em _ jkcontrol\target\jkcontrol _

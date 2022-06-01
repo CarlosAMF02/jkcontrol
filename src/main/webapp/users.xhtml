@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/_template.xhtml">
+	<ui:define name="content">
+		<p:messages>
+			<p:autoUpdate />
+		</p:messages>
+		<h:form>
+			<div class="card" style="margin: 1em">
+				<p:dataTable var="user" value="#{userBean.users}">
+					<p:column headerText="Code">
+						<h:outputText value="#{user.id}" />
+					</p:column>
+
+					<p:column>
+						<img src="${request.contextPath}${user.imagePath}" style="width: 120px"/>
+					</p:column>
+
+					<p:column headerText="Name">
+						<h:outputText value="#{user.name}" />
+					</p:column>
+
+					<p:column headerText="Email">
+						<h:outputText value="#{user.email}" />
+					</p:column>
+
+					<p:column headerText="Bithdate">
+						<h:outputText value="#{user.birthdate}" />
+					</p:column>
+				</p:dataTable>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

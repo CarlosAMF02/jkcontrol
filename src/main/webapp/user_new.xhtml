@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	
+<h:head>
+	<link rel="stylesheet" href="css/style.css" type="text/css"/>
+</h:head>
+
+<body>
+
+		<p:messages id="msg">
+			<p:autoUpdate />
+		</p:messages>
+
+		<h:form enctype="multipart/form-data">
+			<p:card style="width: 25em; margin: 1em auto">
+				<f:facet name="title">New User</f:facet>
+				<div class="ui-fluid">
+					<div class="p-field">
+						<label for="name">Name</label>
+						<p:inputText
+								value="#{userBean.user.name}"
+								id="name" type="text"
+								required="true"
+								requiredMessage="O nome é obrigatório" >
+							<f:ajax event="blur" render="msg"/>
+						</p:inputText>
+					</div>
+					<div class="p-field p-col-12 p-md-4">
+						<p:outputLabel for="date" value="Birth Date" />
+						<p:inputMask
+								id="date"
+								value="#{userBean.user.birthdate}"
+								mask="99/99/9999"
+								required="true"
+								requiredMessage="A data de nascimento é obrigatória">
+							<f:ajax event="blur" render="msg"/>
+						</p:inputMask>
+					</div>
+					<div class="p-field">
+						<label for="email">E-mail</label>
+						<p:inputText
+								value="#{userBean.user.email}"
+								id="email"
+								type="text"
+								required="true"
+								requiredMessage="O e-mail é obrigatório">
+							<f:ajax event="blur" render="msg"/>
+						</p:inputText>
+					</div>
+					<div class="p-field">
+						<label for="password">Password</label>
+						<p:inputText
+								value="#{userBean.user.password}"
+								id="password"
+								type="password"
+								required="true"
+								validatorMessage="A senha deve ter pelo menos 8 caracteres"
+								requiredMessage="A senha é obrigatória">
+							<f:validateLength minimum="8"/>
+							<f:ajax event="blur" render="msg" />
+						</p:inputText>
+					</div>
+					<div>
+						<div class="p-field">
+							<label for="image">Image File: </label>
+							<p:fileUpload value="#{userBean.image}" id="image" mode="simple" skinSimple="true" required="true" requiredMessage="A imagem é obrogatória"/>
+						</div>
+					</div>
+				</div>
+				<f:facet name="footer">
+					<p:commandButton action="#{userBean.save()}"
+									 icon="pi pi-check" value="Create"/>
+					<p:commandButton icon="pi pi-times" value="Cancel"
+									 styleClass="ui-button-secondary" style="margin-left: .5em"/>
+				</f:facet>
+			</p:card>
+		</h:form>
+
+</body>
+
+</html>
